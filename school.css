@@ -1,4 +1,4 @@
-/* Global Styles */
+ /* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -20,6 +20,8 @@ body {
 header {
     background-color: #282c34;
     padding: 15px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
 }
 
 header h3 {
@@ -55,10 +57,21 @@ nav button {
     padding: 8px 20px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 nav button:hover {
     background-color: #e67e22;
+}
+
+/* Animations for Sections */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* Intro Section */
@@ -66,21 +79,29 @@ nav button:hover {
     background-color: #f1f1f1;
     padding: 50px 30px;
     text-align: center;
+    animation: slideUp 1.5s ease-out;
 }
 
 .intro-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
 }
-.intro-content button{
+
+.intro-content button {
     height: 30px;
     width: 100px;
     background-color: #f39c12;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
-.intro-content button:hover{
-  
-    background-color: #e99612b7;
+
+.intro-content button:hover {
+    background-color: #e99612;
 }
 
 .intro-text {
@@ -91,6 +112,7 @@ nav button:hover {
 .intro-text h1 {
     font-size: 36px;
     color: #2c3e50;
+    animation: slideIn 1s ease-out;
 }
 
 .intro-text p {
@@ -106,17 +128,23 @@ nav button:hover {
     width: 100%;
     border-radius: 10px;
     margin: 10px 0;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    animation-delay: 0.5s;
 }
 
 /* Department Section */
 #Department {
     padding: 50px;
     text-align: center;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
 }
 
 .department-header h2 {
     font-size: 32px;
     margin-bottom: 10px;
+    animation: slideIn 1s ease-out;
 }
 
 .department-header p {
@@ -128,6 +156,9 @@ nav button:hover {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+    animation-delay: 0.8s;
 }
 
 .department-card {
@@ -137,6 +168,12 @@ nav button:hover {
     width: 22%;
     text-align: center;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.department-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .department-card i {
@@ -160,11 +197,14 @@ nav button:hover {
     padding: 50px;
     background-color: #ecf0f1;
     text-align: center;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
 }
 
 .courses-header h3 {
     font-size: 32px;
     margin-bottom: 10px;
+    animation: slideIn 1s ease-out;
 }
 
 .courses-header p {
@@ -176,6 +216,9 @@ nav button:hover {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+    animation-delay: 0.8s;
 }
 
 .course-card {
@@ -185,6 +228,12 @@ nav button:hover {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .course-card img {
@@ -211,6 +260,7 @@ nav button:hover {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 15px;
+    transition: background-color 0.3s ease;
 }
 
 .course-card button:hover {
@@ -222,6 +272,8 @@ nav button:hover {
     padding: 50px;
     background-color: #fff;
     text-align: center;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
 }
 
 .register-images {
@@ -233,6 +285,9 @@ nav button:hover {
 .register-images img {
     width: 30%;
     border-radius: 10px;
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
+    animation-delay: 1s;
 }
 
 /* Footer */
@@ -241,11 +296,17 @@ footer {
     color: #fff;
     padding: 30px 20px;
     text-align: center;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+    animation-delay: 1s;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+    animation-delay: 1.3s;
 }
 
 .footer-section h3 {
@@ -336,5 +397,33 @@ footer {
 
     .course-card h3, .department-card h3 {
         font-size: 20px;
+    }
+}
+
+/* Keyframe Animations */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
